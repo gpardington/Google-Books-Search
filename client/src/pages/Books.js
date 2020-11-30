@@ -1,73 +1,78 @@
 import React, { Component } from "react";
-import API from "../utils/API"
-import Jumbotron from "../components/Jumbotron";
+import API from "../utils/API";
 import Card from "../components/Card";
 import SearchForm from "../components/SearchForm";
 import SearchResults from "../components/SearchResults";
+import Jumbotron from "../components/Jumbotron";
 
 class Books extends Component {
-    state = {
-        search: "",
-        result: {},
-        results: [],
-        image:"",
-        message: "Search for a book!"
-    };
+  state = {
+    result: {},
+    search: "",
+    results: [],
+    image: ""
+  };
 
-//Function that runs search of API based on user's input
-    searchBooks = (query) => {
-        API.search(query)
-            .then((res) => {
-                //Set the array of search results to state
-                this.setState({ results: res.data.items });
-                //Set the first search result object to state
-                this.setState({ result: res.data.items[0].volumeInfo });
-                this.setState({ image: res.data.items[0].volumeInfo.imageLinks.thumbnail });
-                this.setState({ search: "" });
-            }).catch((error) => console.log(error));
-    };
 
-    handleInputChange = (event) => {
-        const value = event.target.value;
-        const name = event.target.name;
-        this.setState({
-            [name]: value,
-        });
-    };
+  //a function to run a search of the API based on customer input
+  searchBooks = (query) => {
+    API.search(query)
+      .then((res) => {
+        //sets the array of results to state
+        this.setState({ results: res.data.items });
+        //sets the first result object to state
+        this.setState({ result: res.data.items[0].volumeInfo });
+        
+        this.setState({ image: res.data.items[0].volumeInfo.imageLinks.thumbnail})
+        this.setState({search: ""})
+      }).catch((err) => console.log(err));
+  };
 
-    handleFormSubmit = (event) => {
-        event.preventDefault();
-        this.searchBooks(this.state.search);
-    };
+  handleInputChange = (event) => {
+    const value = event.target.value;
+    const name = event.target.name;
+    this.setState({
+      [name]: value,
+    });
+  };
 
-    handleSaveBook = (book) => {
-        API.saveBook({
-            title: book.volumeInfo.title,
-            authors: book.volumeInfo.authors.join(", "),
-            description: book.volumeInfo.description,
-            image: book.volumeInfo.imageLinks.smallThumbnail,
-            link: book.volumeInfo.infoLink,
-          }).catch((err) => console.log(err));
-        };
+  handleFormSubmit = (event) => {
+    event.preventDefault();
+    this.searchBooks(this.state.search);
+  };
+
+  handleBookSave = (book) => {
     
-        render(){
-            const searchResults = this.state.results;
-            const jumbotronImage = this.state.image;
+    API.saveBook({
+      title: book.volumeInfo.title,
+      authors: book.volumeInfo.authors.join(", "),
+      description: book.volumeInfo.description,
+      image: book.volumeInfo.imageLinks.smallThumbnail,
+      link: book.volumeInfo.infoLink,
+    }).catch((err) => console.log(err));
+  };
 
-            return (
-                <div className="container">
-                    <Card heading="Search for a Book">
-                        <SearchForm
-                            value={this.state.search}
-                            handleInputChange={this.handleInputChange}
-                            handleFormSubmit={this.handleFormSubmit}
-                        />
-                    </Card>
-                    <Jumbotron heading={this.state.result.title} jumbotronImage={jumbotronImage} author={this.state.result.authors}></Jumbotron>
-                    <SearchResults searchResults={searchResults} handleSaveBook={this.handleSaveBook}/>
-                </div>
-            );
-        }
+  render() {
+    
+    const searchResults = this.state.results;
+    
+    const jumboImage = this.state.image;
+    
+    return (
+
+      <div className="container">
+        <Card heading="Search for a Book">
+          <SearchForm
+            value={this.state.search}
+            handleInputChange={this.handleInputChange}
+            handleFormSubmit={this.handleFormSubmit}
+          />
+        </Card>
+        <Jumbotron heading={this.state.result.title} jumboImage={jumboImage} author={this.state.result.authors}></Jumbotron>
+        <SearchResults searchResults={searchResults} handleBookSave={this.handleBookSave}/>
+      </div>
+    );
+  }
 }
 
 export default Books;

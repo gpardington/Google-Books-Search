@@ -20,7 +20,7 @@ function SearchResults(props) {
                             return (
                             <tr key={book.id}>
                                 <td className="td">
-                                    <img className="cover" src={ book.volumeInfo.imageLinks} alt={book.volumeInfo.title}/>
+                                <img className="cover" src={ book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.smallThumbnail: ""} alt={book.volumeInfo.title}/>
                                 </td>
                                 <td className="hide">
                                     {book.volumeInfo.title}

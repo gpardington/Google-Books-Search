@@ -4,3 +4,114 @@ body {
   background-attachment: fixed;
   font-family: 'Roboto', sans-serif;
 }
+
+.nav {
+  width: 100%
+}
+
+.container {
+  width: 1600px;
+  margin: auto;
+}
+
+.jumbotron {
+  width: 100%;
+  margin-bottom: 0;
+  display: flex;
+  padding: 30px;
+}
+
+.jumbotron-image {
+  height: 250px;
+  margin-right: 50px;
+}
+
+.jumbotron-heading {
+  display: flex;
+  font-size: 50px;
+  align-items: center;
+  margin-right: auto;
+}
+
+.card {
+  font-family: '', sans-serif;
+  color: #fff;
+  background-color: #fff;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.card-header {
+  font-family: 'Roboto', sans-serif;
+  background-color: darkred;
+}
+
+.table {
+  background-color: blanchedalmond;
+  border-radius: 0px 0px 5px 5px;
+}
+
+th {
+  font-size: 20px;
+}
+
+.book-input {
+  display: inline-block;
+  height: 50px;
+  width: 60%;
+}
+
+.search-btn {
+  height: 50px;
+  width: 25%;
+  float: right;
+}
+
+.list-button {
+  padding: 20px 0px 20px 0px;
+  width: 170px;
+  margin: 15px auto;
+}
+
+.list-button-div {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+}
+
+.cover {
+  height: auto;
+  width: 150px;
+}
+
+.description {
+  overflow: auto;
+}
+
+@media only screen and (max-width: 1600px) {
+  .container {
+    width: 100%;
+    padding: 0;
+  }
+  .jumbotron {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+  .jumbotron-image {
+    width: auto;
+    height: 250px;
+    display: flex;
+    margin: auto;
+}
+  .hide {
+    display: none;
+  }
+
+  .table {
+    max-width: 100%;
+  }
+
+  .td {
+    width: 90%;
+  }
+}
