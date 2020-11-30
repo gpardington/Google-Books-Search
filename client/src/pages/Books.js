@@ -13,6 +13,10 @@ class Books extends Component {
     image: ""
   };
 
+  //Sets the default search upon page load
+  componentDidMount() {
+    this.searchBooks("Kitchen Confidential");
+  }
 
   //a function to run a search of the API based on customer input
   searchBooks = (query) => {

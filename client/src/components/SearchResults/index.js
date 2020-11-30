@@ -38,10 +38,10 @@ function SearchResults(props) {
                                     {book.volumeInfo.pageCount}
                                 </td>
                                 <td className="td">
-                                    <a href={book.volumeInfo.infoLink} target="_blank" rel="noopener noreferrer" className="btn btn-success list-button">
+                                    <a href={book.volumeInfo.infoLink} target="_blank" rel="noopener noreferrer" className="btn btn-warning list-button">
                                     View in Google Books
                                     </a>
-                                    <button onClick={()=>props.handleBookSave(book)} className="btn btn-info list-button"
+                                    <button onClick={()=>props.handleBookSave(book)} className="btn btn-danger list-button"
                                     >
                                     Add to My Saved Books
                                     </button>

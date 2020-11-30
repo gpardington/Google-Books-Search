@@ -49,7 +49,7 @@ export default class SavedBooks extends Component {
                                         </td>
                                         <td className="td">
                                             <a className="btn btn-info list-button" href={item.link} target="_blank" rel="noopener noreferrer">Google Books</a>
-                                            <button onClick={()=>this.handleButtonClick(item._id)} className="btn btn-primary list-button">Remove</button>
+                                            <button onClick={()=>this.handleButtonClick(item._id)} className="btn btn-danger list-button">Remove</button>
                                         </td>
                                     </tr>
                                 )
