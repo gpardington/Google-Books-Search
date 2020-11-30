@@ -54,3 +54,5 @@ function SearchResults(props) {
         </div>
     )
 }
+
+export default SearchResults;

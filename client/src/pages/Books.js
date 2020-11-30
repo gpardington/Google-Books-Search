@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import API from "../utils/API"
-import Nav from "../components/Nav";
+//import Nav from "../components/Nav";
 import Jumbotron from "../components/Jumbotron";
+import Card from "../components/Card";
 import SearchForm from "../components/SearchForm";
 import SearchResults from "../components/SearchResults";
 
