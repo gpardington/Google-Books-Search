@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Nav from "../components/Nav";
 import Jumbotron from "../components/Jumbotron";
 import Form from "../components/Form";
+import Axios from "axios";
 
 class Books extends Component {
     state = {
@@ -9,6 +10,20 @@ class Books extends Component {
         results: [],
         message: "Search for a book!"
     };
+
+    handleInputChange() {
+        const book = {
+            name: "x",
+            author: "y"
+        }
+        API.postBook(book)
+            .then((res)=>{
+
+            })
+            .catch()
+
+        
+    }
 
     render() {
         return (
