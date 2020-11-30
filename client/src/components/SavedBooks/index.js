@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import API from "../utils/API"
 
-export default class SavedBook extends Component {
+export default class SavedBooks extends Component {
     state = {
         books: [],
     };
