@@ -1,17 +1,14 @@
 import React from "react";
 
-function Jumbotron() {
-  return (
-    <div
-      style={{ height: 300, clear: "both", paddingTop: 120, textAlign: "center" }}
-      className="jumbotron jumbotron-fluid"
-    >
-        <div className="container">
-                <h1 className="text-center">(React) Google Books Search</h1>
-                <p className="lead text-center">Search for and Save Books of Interest</p>
-        </div>
-    </div>
-  );
-}
+export default function JumboTron(props) {
 
-export default Jumbotron;
+  return (
+      <div className="jumbotron">
+         
+          <img className="jumbotron-image" alt={props.heading} src={props.jumboImage}></img>
+          <h2 className="jumbotron-heading">{props.heading}</h2>
+          <p className="jumbotron-subheading">By {props.author}</p>
+
+      </div>
+  )
+}

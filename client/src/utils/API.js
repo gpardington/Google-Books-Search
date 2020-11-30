@@ -1,13 +1,17 @@
-const { default: Axios } = require("axios");
+import axios from "axios";
+
+const BASEURL = "https://www.googleapis.com/books/v1/volumes?q=";
 
 export default {
-    // put 3rd party API here
-        postBook: function(bookData) {
-            return axios.post("/api/books", bookData);
-        },
+  search: function (query) {
+    return axios.get(BASEURL + query);
+  },
 
-        getWeather: function(){
-            return Axios.get("https://openwaeather.org/aslkdfjhvpyhkjbnasdf")
-        }
-}
+  saveBook: function (bookData) {
+    return axios.post("/api/books", bookData);
+  },
 
+  deleteBook: function (id) {
+    return axios.delete("/api/books/" + id);
+  }
+};
